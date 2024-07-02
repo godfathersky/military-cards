@@ -1,10 +1,16 @@
 // src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import Card from './Cards';
 import ranks from './ranks';
-import './App.css'; // Możesz dodać stylizację aplikacji
+import './App.css';
 
 function App() {
+  const [flippedIndex, setFlippedIndex] = useState(null);
+
+  const handleFlip = (index) => {
+    setFlippedIndex(index === flippedIndex ? null : index);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -12,7 +18,12 @@ function App() {
       </header>
       <div className="cards-container">
         {ranks.map((rank, index) => (
-          <Card key={index} rank={rank} />
+          <Card
+            key={index}
+            rank={rank}
+            isFlipped={index === flippedIndex}
+            onFlip={() => handleFlip(index)}
+          />
         ))}
       </div>
     </div>

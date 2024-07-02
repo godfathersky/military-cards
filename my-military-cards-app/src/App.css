@@ -4,14 +4,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #4B5320;
   padding: 20px;
   color: white;
 }
 
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
-  padding: 20px;
+  padding: 20px 100px 0 100px;
 }

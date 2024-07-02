@@ -1,16 +1,10 @@
-// src/Flashcard.js
-import React, { useState } from 'react';
-import './Cards.css'; // Stwórz plik CSS dla stylów
+import React from 'react';
+import './Cards.css';
 
-const Card = ({ rank }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleFlip = () => {
-    setIsFlipped(!isFlipped);
-  };
+const Card = ({ rank, isFlipped, onFlip }) => {
 
   return (
-    <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
+    <div className={`card ${isFlipped ? 'flipped' : ''}`} onClick={onFlip}>
       <div className="card-inner">
         <div className="card-front">
           <img src={rank.image} alt={rank.name} />
